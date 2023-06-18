@@ -21,8 +21,8 @@ openhgnn==0.4.0
 GPU: GeForce RTX 4090  24GB \
 CPU: AMD 3900X @3.80GHz 24-core
 # Usage
-
-Fisrt, go into ./code, and then you can use the following commend to run our model: 
+Fisrt, unzip the data.zip file and place the data folder in the root directory \
+Second, go into ./code, and then you can use the following commend to run our model: 
 
 ## Pre-trained Models
 > python main.py dblp --load_from_pretrained 
