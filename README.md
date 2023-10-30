@@ -21,16 +21,14 @@ openhgnn==0.4.0
 GPU: GeForce RTX 4090  24GB \
 CPU: AMD 3900X @3.80GHz 24-core
 # Usage
-Fisrt, unzip the data.zip file and place the data folder in the root directory \
+Fisrt, download the dataset from [Google Drive](https://drive.google.com/file/d/1gtJ04O-9DKMVy1a_lM_ECbM1nnLruqil/view?usp=sharing), unzip the data.zip file and place the data folder in the root directory \
 Second, go into ./code, and then you can use the following commend to run our model: 
 
-## Pre-trained Models
-> python main.py dblp --load_from_pretrained 
 
 ## Train New Models
 > python main.py dblp 
 
-Here, "dblp" can be replaced by "acm"  or "freebase".
+Here, "dblp" can be replaced by "acm", "freebase" or "academic".
 
 # License
 This repository is released under the Apache 2.0 license.
