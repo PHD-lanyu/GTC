@@ -35,6 +35,15 @@ This repository is released under the Apache 2.0 license.
 
 # Acknowledgement
 This repository is built upon [HeCo](https://github.com/liun-online/HeCo), [NAGphormer](https://github.com/JHL-HUST/NAGphormer) and [OpenHGNN](https://github.com/BUPT-GAMMA/OpenHGNN), we thank the authors for their open-sourced code.
-
+# Citation
+If you find our codes useful, please cite our work. Thank you.
+```bibtex
+@article{sun2024gtc,
+  title={GTC: GNN-Transformer Co-contrastive Learning for Self-supervised Heterogeneous Graph Representation},
+  author={Sun, Yundong and Zhu, Dongjie and Wang, Yansong and Tian, Zhaoshuo},
+  journal={arXiv preprint arXiv:2403.15520},
+  year={2024}
+}
+```
 # Contact
 If you have any questions, please feel free to contact me with hitffmy@163.com
