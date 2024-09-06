@@ -39,10 +39,12 @@ This repository is built upon [HeCo](https://github.com/liun-online/HeCo), [NAGp
 If you find our codes useful, please cite our work. Thank you.
 ```bibtex
 @article{sun2024gtc,
-  title={GTC: GNN-Transformer Co-contrastive Learning for Self-supervised Heterogeneous Graph Representation},
-  author={Sun, Yundong and Zhu, Dongjie and Wang, Yansong and Tian, Zhaoshuo},
-  journal={arXiv preprint arXiv:2403.15520},
-  year={2024}
+  title={GTC: GNN-Transformer co-contrastive learning for self-supervised heterogeneous graph representation},
+  author={Sun, Yundong and Zhu, Dongjie and Wang, Yansong and Fu, Yansheng and Tian, Zhaoshuo},
+  journal={Neural Networks},
+  pages={106645},
+  year={2024},
+  publisher={Elsevier}
 }
 ```
 # Contact
