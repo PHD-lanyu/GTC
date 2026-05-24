@@ -381,8 +381,9 @@ def load_data(data_name, t_hops=7, data_dir='../data/', start_hop=0, cache_sub_d
             for key in h_dict:
                 torch.save(h_dict[key].to_sparse(), cache_dir + 'h_dict_{}.pt'.format(key))
             torch.save(labels, cache_dir + 'labels.pt')
-            np.save(cache_dir + 'adj_dict', adj_dict)
-            np.save(cache_dir + 'meta_path_adj', meta_path_adj)
+            # 下面这两行导致序列化有问题，暂时注释掉，因为它们不会影响后续加载
+            # np.save(cache_dir + 'adj_dict', adj_dict)
+            # np.save(cache_dir + 'meta_path_adj', meta_path_adj)
             torch.save(pos.to_sparse(), cache_dir + 'pos.pt')
             for max_hop in range(1, 10):
                 multi_hop_features_with_process_feature_with_normalize_adj = [
@@ -500,8 +501,9 @@ def load_data(data_name, t_hops=7, data_dir='../data/', start_hop=0, cache_sub_d
             for key in h_dict:
                 torch.save(h_dict[key].to_sparse(), cache_dir + 'h_dict_{}.pt'.format(key))
             torch.save(labels, cache_dir + 'labels.pt')
-            np.save(cache_dir + 'adj_dict', adj_dict)
-            np.save(cache_dir + 'meta_path_adj', meta_path_adj)
+            # 下面这两行导致序列化有问题，暂时注释掉，因为它们不会影响后续加载
+            # np.save(cache_dir + 'adj_dict', adj_dict)
+            # np.save(cache_dir + 'meta_path_adj', meta_path_adj)
             torch.save(pos.to_sparse(), cache_dir + 'pos.pt')
             for max_hop in tqdm(range(1, 10)):
                 multi_hop_features_with_process_feature_with_normalize_adj = [

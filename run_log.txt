@@ -1,0 +1,339 @@
+/root/.pyenv/versions/3.12.13/lib/python3.12/site-packages/outdated/__init__.py:36: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  from pkg_resources import parse_version
+Traceback (most recent call last):
+  File "/workspace/code/main.py", line 21, in <module>
+    from dgl.dataloading import DataLoader
+  File "/root/.pyenv/versions/3.12.13/lib/python3.12/site-packages/dgl/__init__.py", line 16, in <module>
+    from . import (
+  File "/root/.pyenv/versions/3.12.13/lib/python3.12/site-packages/dgl/dataloading/__init__.py", line 13, in <module>
+    from .dataloader import *
+  File "/root/.pyenv/versions/3.12.13/lib/python3.12/site-packages/dgl/dataloading/dataloader.py", line 27, in <module>
+    from ..distributed import DistGraph
+  File "/root/.pyenv/versions/3.12.13/lib/python3.12/site-packages/dgl/distributed/__init__.py", line 5, in <module>
+    from .dist_graph import DistGraph, DistGraphServer, edge_split, node_split
+  File "/root/.pyenv/versions/3.12.13/lib/python3.12/site-packages/dgl/distributed/dist_graph.py", line 11, in <module>
+    from .. import backend as F, graphbolt as gb, heterograph_index
+  File "/root/.pyenv/versions/3.12.13/lib/python3.12/site-packages/dgl/graphbolt/__init__.py", line 55, in <module>
+    load_graphbolt()
+  File "/root/.pyenv/versions/3.12.13/lib/python3.12/site-packages/dgl/graphbolt/__init__.py", line 45, in load_graphbolt
+    raise FileNotFoundError(
+FileNotFoundError: Cannot find DGL C++ graphbolt library at /root/.pyenv/versions/3.12.13/lib/python3.12/site-packages/dgl/graphbolt/libgraphbolt_pytorch_2.12.0.so
+
+A module that was compiled using NumPy 1.x cannot be run in
+NumPy 2.4.6 as it may crash. To support both 1.x and 2.x
+versions of NumPy, modules must be compiled with NumPy 2.0.
+Some module may need to rebuild instead e.g. with 'pybind11>=2.12'.
+
+If you are a user of the module, the easiest solution will be to
+downgrade to 'numpy<2' or try to upgrade the affected module.
+We expect that some modules will need time to support NumPy 2.
+
+Traceback (most recent call last):  File "/workspace/code/main.py", line 20, in <module>
+    import torch
+  File "/root/.pyenv/versions/3.12.13/lib/python3.12/site-packages/torch/__init__.py", line 1477, in <module>
+    from .functional import *  # noqa: F403
+  File "/root/.pyenv/versions/3.12.13/lib/python3.12/site-packages/torch/functional.py", line 9, in <module>
+    import torch.nn.functional as F
+  File "/root/.pyenv/versions/3.12.13/lib/python3.12/site-packages/torch/nn/__init__.py", line 1, in <module>
+    from .modules import *  # noqa: F403
+  File "/root/.pyenv/versions/3.12.13/lib/python3.12/site-packages/torch/nn/modules/__init__.py", line 35, in <module>
+    from .transformer import TransformerEncoder, TransformerDecoder, \
+  File "/root/.pyenv/versions/3.12.13/lib/python3.12/site-packages/torch/nn/modules/transformer.py", line 20, in <module>
+    device: torch.device = torch.device(torch._C._get_default_device()),  # torch.device('cpu'),
+/root/.pyenv/versions/3.12.13/lib/python3.12/site-packages/torch/nn/modules/transformer.py:20: UserWarning: Failed to initialize NumPy: _ARRAY_API not found (Triggered internally at ../torch/csrc/utils/tensor_numpy.cpp:84.)
+  device: torch.device = torch.device(torch._C._get_default_device()),  # torch.device('cpu'),
+/root/.pyenv/versions/3.12.13/lib/python3.12/site-packages/outdated/__init__.py:36: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  from pkg_resources import parse_version
+------------------------------------------------------------
+exp:0
+------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/code/main.py", line 292, in <module>
+    model_train(args)
+  File "/workspace/code/main.py", line 197, in model_train
+    h_dict, labels, P, num_classes, pos = load_data(
+                                          ^^^^^^^^^^
+  File "/workspace/code/self_tools/data_tools.py", line 316, in load_data
+    pos = sparse_mx_to_torch_sparse_tensor(pos)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/code/self_tools/data_tools.py", line 48, in sparse_mx_to_torch_sparse_tensor
+    indices = torch.from_numpy(
+              ^^^^^^^^^^^^^^^^^
+RuntimeError: Numpy is not available
+/root/.pyenv/versions/3.12.13/lib/python3.12/site-packages/outdated/__init__.py:36: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  from pkg_resources import parse_version
+------------------------------------------------------------
+exp:0
+------------------------------------------------------------
+start save cache files~
+Traceback (most recent call last):
+  File "/workspace/code/main.py", line 292, in <module>
+    model_train(args)
+  File "/workspace/code/main.py", line 197, in model_train
+    h_dict, labels, P, num_classes, pos = load_data(
+                                          ^^^^^^^^^^
+  File "/workspace/code/self_tools/data_tools.py", line 384, in load_data
+    np.save(cache_dir + 'adj_dict', adj_dict)
+  File "/root/.pyenv/versions/3.12.13/lib/python3.12/site-packages/numpy/lib/npyio.py", line 546, in save
+    format.write_array(fid, arr, allow_pickle=allow_pickle,
+  File "/root/.pyenv/versions/3.12.13/lib/python3.12/site-packages/numpy/lib/format.py", line 719, in write_array
+    pickle.dump(array, fp, protocol=3, **pickle_kwargs)
+RuntimeError: Tried to serialize object __torch__.torch.classes.dgl_sparse.SparseMatrix which does not have a __getstate__ method defined!
+/root/.pyenv/versions/3.12.13/lib/python3.12/site-packages/outdated/__init__.py:36: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  from pkg_resources import parse_version
+------------------------------------------------------------
+exp:0
+------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/code/main.py", line 292, in <module>
+    model_train(args)
+  File "/workspace/code/main.py", line 197, in model_train
+    h_dict, labels, P, num_classes, pos = load_data(
+                                          ^^^^^^^^^^
+  File "/workspace/code/self_tools/data_tools.py", line 325, in load_data
+    multi_hop_features = torch.load(
+                         ^^^^^^^^^^^
+  File "/root/.pyenv/versions/3.12.13/lib/python3.12/site-packages/torch/serialization.py", line 998, in load
+    with _open_file_like(f, 'rb') as opened_file:
+         ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/.pyenv/versions/3.12.13/lib/python3.12/site-packages/torch/serialization.py", line 445, in _open_file_like
+    return _open_file(name_or_buffer, mode)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/.pyenv/versions/3.12.13/lib/python3.12/site-packages/torch/serialization.py", line 426, in __init__
+    super().__init__(open(name, mode))
+                     ^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '../data/cache-opensource/freebase/multi_hop_features_0_8.pt'
+/root/.pyenv/versions/3.12.13/lib/python3.12/site-packages/outdated/__init__.py:36: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  from pkg_resources import parse_version
+------------------------------------------------------------
+exp:0
+------------------------------------------------------------
+start save cache files~
+save cache files finished~
+dataset freebase is loaded!
+seed  3838
+Dataset:  freebase
+The number of gnn_branch_num:  4
+GTC(
+  (fc_list): ModuleList(
+    (0): Linear(in_features=3492, out_features=64, bias=True)
+  )
+  (feat_drop): Dropout(p=0.6, inplace=False)
+  (transformer_list): ModuleList(
+    (0-2): 3 x TransformerModel(
+      (att_embeddings_nope): Linear(in_features=3492, out_features=64, bias=True)
+      (layers): ModuleList(
+        (0-1): 2 x EncoderLayer(
+          (self_attention_norm): LayerNorm((64,), eps=1e-05, elementwise_affine=True)
+          (self_attention): MultiHeadAttention(
+            (linear_q): Linear(in_features=64, out_features=64, bias=True)
+            (linear_k): Linear(in_features=64, out_features=64, bias=True)
+            (linear_v): Linear(in_features=64, out_features=64, bias=True)
+            (att_dropout): Dropout(p=0.7, inplace=False)
+            (output_layer): Linear(in_features=64, out_features=64, bias=True)
+          )
+          (self_attention_dropout): Dropout(p=0.1, inplace=False)
+          (ffn_norm): LayerNorm((64,), eps=1e-05, elementwise_affine=True)
+          (ffn): FeedForwardNetwork(
+            (layer1): Linear(in_features=64, out_features=128, bias=True)
+            (gelu): GELU(approximate='none')
+            (layer2): Linear(in_features=128, out_features=64, bias=True)
+          )
+          (ffn_dropout): Dropout(p=0.1, inplace=False)
+        )
+      )
+      (final_ln): LayerNorm((64,), eps=1e-05, elementwise_affine=True)
+      (out_proj): Linear(in_features=64, out_features=32, bias=True)
+      (attn_layer): Linear(in_features=128, out_features=1, bias=True)
+    )
+  )
+  (att_embeddings_proj): Linear(in_features=32, out_features=64, bias=True)
+  (sematic_attention): Attention(
+    (fc): Linear(in_features=64, out_features=64, bias=True)
+    (tanh): Tanh()
+    (softmax): Softmax(dim=None)
+    (attn_drop): Dropout(p=0.7, inplace=False)
+  )
+  (gnn_branch): GNN_encoder(
+    (gcn_layer_list): ModuleList(
+      (0): rgcn_layer(
+        (conv1): HeteroGraphConv(
+          (mods): ModuleDict(
+            (net_mam): GraphConv(in=64, out=128, normalization=right, activation=None)
+            (net_mdm): GraphConv(in=64, out=128, normalization=right, activation=None)
+            (net_mwm): GraphConv(in=64, out=128, normalization=right, activation=None)
+          )
+        )
+      )
+      (1-2): 2 x rgcn_layer(
+        (conv1): HeteroGraphConv(
+          (mods): ModuleDict(
+            (net_mam): GraphConv(in=128, out=128, normalization=right, activation=None)
+            (net_mdm): GraphConv(in=128, out=128, normalization=right, activation=None)
+            (net_mwm): GraphConv(in=128, out=128, normalization=right, activation=None)
+          )
+        )
+      )
+      (3): rgcn_layer(
+        (conv1): HeteroGraphConv(
+          (mods): ModuleDict(
+            (net_mam): GraphConv(in=128, out=64, normalization=right, activation=None)
+            (net_mdm): GraphConv(in=128, out=64, normalization=right, activation=None)
+            (net_mwm): GraphConv(in=128, out=64, normalization=right, activation=None)
+          )
+        )
+      )
+    )
+  )
+  (contrast): Contrast(
+    (proj): Sequential(
+      (0): Linear(in_features=64, out_features=64, bias=True)
+      (1): ELU(alpha=1.0)
+      (2): Linear(in_features=64, out_features=64, bias=True)
+    )
+  )
+)
+------------------------------------------------------------
+train_flow for exp-0
+Traceback (most recent call last):
+  File "/workspace/code/main.py", line 292, in <module>
+    model_train(args)
+  File "/workspace/code/main.py", line 218, in model_train
+    best_t = train_flow(model, train_loader, optimizer, args, category, pos, own_str, exp=exp)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/code/main.py", line 98, in train_flow
+    blocks = [block.to(config.device) for block in blocks]
+              ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/.pyenv/versions/3.12.13/lib/python3.12/site-packages/dgl/heterograph.py", line 5714, in to
+    ret._graph = self._graph.copy_to(utils.to_dgl_context(device))
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/.pyenv/versions/3.12.13/lib/python3.12/site-packages/dgl/heterograph_index.py", line 255, in copy_to
+    return _CAPI_DGLHeteroCopyTo(self, ctx.device_type, ctx.device_id)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "dgl/_ffi/_cython/./function.pxi", line 295, in dgl._ffi._cy3.core.FunctionBase.__call__
+  File "dgl/_ffi/_cython/./function.pxi", line 227, in dgl._ffi._cy3.core.FuncCall
+  File "dgl/_ffi/_cython/./function.pxi", line 217, in dgl._ffi._cy3.core.FuncCall3
+dgl._ffi.base.DGLError: [12:04:05] /opt/dgl/src/runtime/c_runtime_api.cc:82: Check failed: allow_missing: Device API cuda is not enabled. Please install the cuda version of dgl.
+Stack trace:
+  [bt] (0) /root/.pyenv/versions/3.12.13/lib/python3.12/site-packages/dgl/libdgl.so(dmlc::LogMessageFatal::~LogMessageFatal()+0x67) [0x7fdb5f1621b7]
+  [bt] (1) /root/.pyenv/versions/3.12.13/lib/python3.12/site-packages/dgl/libdgl.so(dgl::runtime::DeviceAPIManager::GetAPI(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, bool)+0x2a5) [0x7fdb5f5bae85]
+  [bt] (2) /root/.pyenv/versions/3.12.13/lib/python3.12/site-packages/dgl/libdgl.so(dgl::runtime::DeviceAPI::Get(DGLContext, bool)+0x1ea) [0x7fdb5f5b789a]
+  [bt] (3) /root/.pyenv/versions/3.12.13/lib/python3.12/site-packages/dgl/libdgl.so(dgl::runtime::NDArray::Empty(std::vector<long, std::allocator<long> >, DGLDataType, DGLContext)+0x130) [0x7fdb5f5d0e60]
+  [bt] (4) /root/.pyenv/versions/3.12.13/lib/python3.12/site-packages/dgl/libdgl.so(dgl::runtime::NDArray::CopyTo(DGLContext const&) const+0xb5) [0x7fdb5f605c45]
+  [bt] (5) /root/.pyenv/versions/3.12.13/lib/python3.12/site-packages/dgl/libdgl.so(dgl::UnitGraph::CSR::CopyTo(DGLContext const&) const+0x249) [0x7fdb5f704149]
+  [bt] (6) /root/.pyenv/versions/3.12.13/lib/python3.12/site-packages/dgl/libdgl.so(dgl::UnitGraph::CopyTo(std::shared_ptr<dgl::BaseHeteroGraph>, DGLContext const&)+0xbf) [0x7fdb5f6f7cff]
+  [bt] (7) /root/.pyenv/versions/3.12.13/lib/python3.12/site-packages/dgl/libdgl.so(dgl::HeteroGraph::CopyTo(std::shared_ptr<dgl::BaseHeteroGraph>, DGLContext const&)+0xfa) [0x7fdb5f611a0a]
+  [bt] (8) /root/.pyenv/versions/3.12.13/lib/python3.12/site-packages/dgl/libdgl.so(+0x6226d6) [0x7fdb5f6226d6]
+
+
+/root/.pyenv/versions/3.12.13/lib/python3.12/site-packages/outdated/__init__.py:36: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  from pkg_resources import parse_version
+------------------------------------------------------------
+exp:0
+------------------------------------------------------------
+start save cache files~
+save cache files finished~
+dataset freebase is loaded!
+seed  3838
+Dataset:  freebase
+The number of gnn_branch_num:  4
+GTC(
+  (fc_list): ModuleList(
+    (0): Linear(in_features=3492, out_features=64, bias=True)
+  )
+  (feat_drop): Dropout(p=0.6, inplace=False)
+  (transformer_list): ModuleList(
+    (0-2): 3 x TransformerModel(
+      (att_embeddings_nope): Linear(in_features=3492, out_features=64, bias=True)
+      (layers): ModuleList(
+        (0-1): 2 x EncoderLayer(
+          (self_attention_norm): LayerNorm((64,), eps=1e-05, elementwise_affine=True)
+          (self_attention): MultiHeadAttention(
+            (linear_q): Linear(in_features=64, out_features=64, bias=True)
+            (linear_k): Linear(in_features=64, out_features=64, bias=True)
+            (linear_v): Linear(in_features=64, out_features=64, bias=True)
+            (att_dropout): Dropout(p=0.7, inplace=False)
+            (output_layer): Linear(in_features=64, out_features=64, bias=True)
+          )
+          (self_attention_dropout): Dropout(p=0.1, inplace=False)
+          (ffn_norm): LayerNorm((64,), eps=1e-05, elementwise_affine=True)
+          (ffn): FeedForwardNetwork(
+            (layer1): Linear(in_features=64, out_features=128, bias=True)
+            (gelu): GELU(approximate='none')
+            (layer2): Linear(in_features=128, out_features=64, bias=True)
+          )
+          (ffn_dropout): Dropout(p=0.1, inplace=False)
+        )
+      )
+      (final_ln): LayerNorm((64,), eps=1e-05, elementwise_affine=True)
+      (out_proj): Linear(in_features=64, out_features=32, bias=True)
+      (attn_layer): Linear(in_features=128, out_features=1, bias=True)
+    )
+  )
+  (att_embeddings_proj): Linear(in_features=32, out_features=64, bias=True)
+  (sematic_attention): Attention(
+    (fc): Linear(in_features=64, out_features=64, bias=True)
+    (tanh): Tanh()
+    (softmax): Softmax(dim=None)
+    (attn_drop): Dropout(p=0.7, inplace=False)
+  )
+  (gnn_branch): GNN_encoder(
+    (gcn_layer_list): ModuleList(
+      (0): rgcn_layer(
+        (conv1): HeteroGraphConv(
+          (mods): ModuleDict(
+            (net_mam): GraphConv(in=64, out=128, normalization=right, activation=None)
+            (net_mdm): GraphConv(in=64, out=128, normalization=right, activation=None)
+            (net_mwm): GraphConv(in=64, out=128, normalization=right, activation=None)
+          )
+        )
+      )
+      (1-2): 2 x rgcn_layer(
+        (conv1): HeteroGraphConv(
+          (mods): ModuleDict(
+            (net_mam): GraphConv(in=128, out=128, normalization=right, activation=None)
+            (net_mdm): GraphConv(in=128, out=128, normalization=right, activation=None)
+            (net_mwm): GraphConv(in=128, out=128, normalization=right, activation=None)
+          )
+        )
+      )
+      (3): rgcn_layer(
+        (conv1): HeteroGraphConv(
+          (mods): ModuleDict(
+            (net_mam): GraphConv(in=128, out=64, normalization=right, activation=None)
+            (net_mdm): GraphConv(in=128, out=64, normalization=right, activation=None)
+            (net_mwm): GraphConv(in=128, out=64, normalization=right, activation=None)
+          )
+        )
+      )
+    )
+  )
+  (contrast): Contrast(
+    (proj): Sequential(
+      (0): Linear(in_features=64, out_features=64, bias=True)
+      (1): ELU(alpha=1.0)
+      (2): Linear(in_features=64, out_features=64, bias=True)
+    )
+  )
+)
+------------------------------------------------------------
+train_flow for exp-0
+Traceback (most recent call last):
+  File "/workspace/code/main.py", line 292, in <module>
+    model_train(args)
+  File "/workspace/code/main.py", line 218, in model_train
+    best_t = train_flow(model, train_loader, optimizer, args, category, pos, own_str, exp=exp)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/code/main.py", line 98, in train_flow
+    blocks = [block.to(config.device) for block in blocks]
+              ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/.pyenv/versions/3.12.13/lib/python3.12/site-packages/dgl/heterograph.py", line 5714, in to
+    ret._graph = self._graph.copy_to(utils.to_dgl_context(device))
+                                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/.pyenv/versions/3.12.13/lib/python3.12/site-packages/dgl/utils/internal.py", line 585, in to_dgl_context
+    device_type = nd.DGLContext.STR2MASK[F.device_type(ctx)]
+                                         ^^^^^^^^^^^^^^^^^^
+  File "/root/.pyenv/versions/3.12.13/lib/python3.12/site-packages/dgl/backend/pytorch/tensor.py", line 104, in device_type
+    return th.device(ctx).type
+           ^^^^^^^^^^^^^^
+RuntimeError: Device index must not be negative

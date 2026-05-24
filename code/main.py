@@ -28,11 +28,8 @@ from self_tools.evaluate import evaluate_for_test, evaluate_for_train
 from self_tools.params import set_params
 
 args = set_params()
-if torch.cuda.is_available() and args.device > -1:
-    device = torch.device("cuda:0")
-    torch.cuda.set_device(args.device)
-else:
-    device = torch.device("cpu")
+# 强制使用 CPU 以兼容当前环境
+device = torch.device("cpu")
 
 ## name of intermediate document ##
 
@@ -95,7 +92,7 @@ def train_flow(model, train_loader, optimizer, config, category, pos, own_str, e
         model.train()
         loss_epoch = 0
         for batch_id, (input_nodes, output_nodes, blocks) in enumerate(train_loader):
-            blocks = [block.to(config.device) for block in blocks]
+            # blocks = [block.to(config.device) for block in blocks]  # 注释掉，强制使用 CPU
             # for GNN_branch batch data
             if 'h' in blocks[0].srcdata:
                 input_fea4GNN = blocks[0].srcdata['h']
@@ -107,7 +104,7 @@ def train_flow(model, train_loader, optimizer, config, category, pos, own_str, e
             if not isinstance(input_fea4GNN, dict):
                 input_fea4GNN = {category: input_fea4GNN}
             # deal with pos for mini-batch
-            pos_batch = get_batch_pos(pos=pos, batch_node_id_x=output_nodes[category].numpy()).to(config.device)
+            pos_batch = get_batch_pos(pos=pos, batch_node_id_x=output_nodes[category].numpy()) # .to(config.device) - 注释掉
             # [num_meta-paths,num_nodes,num_hops,feature_dim}
             multi_hop_features = blocks[-1].dstnodes[category].data['multi_hop_feature'].permute(1, 0, 2, 3)
 
@@ -176,11 +173,8 @@ def model_train(args):
         print('exp:{}'.format(exp))
         print('-' * 60)
         starttime = datetime.datetime.now()
-        if torch.cuda.is_available() and args.device > -1:
-            device = torch.device("cuda:0")
-            torch.cuda.set_device(args.device)
-        else:
-            device = torch.device("cpu")
+        # 强制使用 CPU 以兼容当前环境
+        device = torch.device("cpu")
 
         # name of intermediate document
         own_str = args.dataset + '_' + str(exp)
@@ -205,14 +199,10 @@ def model_train(args):
                                               category, all_node_idx, dgl_graph.etypes, num_classes)
         print(model)
 
-        if torch.cuda.is_available() and args.device > -1:
-            print('Using CUDA~')
-            model.to(device)
-            labels = labels.cuda()
-            for index in range(len(train_idx_list)):
-                train_idx_list[index] = train_idx_list[index].long().cuda()
-                val_idx_list[index] = val_idx_list[index].long().cuda()
-                test_idx_list[index] = test_idx_list[index].long().cuda()
+        # 强制使用 CPU，不使用 CUDA
+        print('Using CPU~')
+        model.to(device)
+        # 确保所有数据都在 CPU 上
 
         # train the model~
         best_t = train_flow(model, train_loader, optimizer, args, category, pos, own_str, exp=exp)
